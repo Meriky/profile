@@ -12,17 +12,12 @@ alias cd..="cd .."
 alias c="cd"
 
 alias v="vim"
-alias p="pwd"
 alias g="grep"
 alias gl="grep -rl"
-#alias gn="grep -rn"
 
 alias apa="sudo apachectl -k restart"
-alias mre="memcached -d restart"
 
 alias sb="source ~/.bashrc"
-
-alias qnpm="npm --registry=http://172.16.0.60:7001/ --cache=$HOME/.npm/.cache/qnpm --disturl=http://node.mirror.bshy.me/dist/ --userconfig=$HOME/.qnpmrc"
 
 function gn() {
   grep -rn ${@:1} *

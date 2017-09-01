@@ -59,6 +59,8 @@ set timeout timeoutlen=500
 syntax on
 "regard stylus as less
 autocmd BufNewFile,BufRead *.styl set filetype=less
+autocmd BufNewFile,BufRead *.tsx  set filetype=javascript
+autocmd BufNewFile,BufRead *.ts set filetype=javascript
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -108,8 +110,6 @@ noremap <C-L> <Esc>:tabnext<CR>
 noremap <C-H> <Esc>:tabprevious<CR>
 noremap <C-M> <Esc>:source ~/.vimrc<CR>
 inoremap `` <C-[>
-inoremap ;; <Esc>A
-inoremap :: <Esc>la
 inoremap ,, <Esc>^i<CR><Esc>ki
 "复制粘贴
 vmap ;<c-c> y:call system("pbcopy", getreg("\""))<CR>
@@ -122,6 +122,12 @@ au FileType markdown inoremap ;<c-i> **<Esc>i
 if exists('$TMUX')
     set term=screen-256color
 endif
+"emmet
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 "eslint
 let g:syntastic_javascript_checkers = ['eslint']
@@ -136,7 +142,7 @@ Plugin 'hail2u/vim-css3-syntax'
 "Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'marijnh/tern_for_vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
